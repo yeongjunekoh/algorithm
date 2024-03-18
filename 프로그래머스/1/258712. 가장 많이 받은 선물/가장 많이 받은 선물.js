@@ -41,7 +41,7 @@ function solution(friends, gifts) {
         totalReceiveArray[index] = 0;
     });
     
-    // Giver의 Receiver에 숫자 할당
+    // Giver에 따른 숫자 할당
     gifts.forEach((item) => {
         // 띄어쓰기 별 Giver와 Taker 분류
         const giftExchange = item.split(" ");
