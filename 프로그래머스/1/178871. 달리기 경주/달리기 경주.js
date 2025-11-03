@@ -14,7 +14,6 @@ function solution(players, callings) {
     return players;
 }
 
-
 /**
 * 시간초과 발생
 * 1. players를 검색할때마다 players.length의 시간복잡도를 가짐.
