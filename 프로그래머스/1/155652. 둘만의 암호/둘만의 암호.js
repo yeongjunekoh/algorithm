@@ -1,25 +1,7 @@
 
-
 function solution(s, skip, index) {
-    const handleAlphabetCode = (code) => {
-        let currentCode = code;
-        if(currentCode > 'z'.charCodeAt()) currentCode = currentCode - 'z'.charCodeAt() + 'a'.charCodeAt() - 1;
-
-        return currentCode;
-    }
-    
-    const skipCode = [...skip].map(alphabet => alphabet.charCodeAt());
-    const alphabetArray = [...s].map(alphabet => {
-        var alphabetCode = alphabet.charCodeAt();
-        var plus = 0;
-        
-        while(plus < index) {
-            alphabetCode = handleAlphabetCode(alphabetCode + 1);
-            if(!skipCode.includes(alphabetCode)) plus++;
-        }
-        
-        return String.fromCharCode(alphabetCode);
-    });
-    
-    return alphabetArray.join('');
+    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
+                      "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", 
+                      "u", "v", "w", "x", "y", "z"].filter(c => !skip.includes(c));
+    return s.split("").map(c => alphabet[(alphabet.indexOf(c) + index) % alphabet.length]).join("");
 }
