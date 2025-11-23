@@ -1,30 +1,18 @@
 function solution(s) {
-    var answer = 0;
-    let x = '';
-    let same = 0;
-    let diff = 0;
-    
-    [...s].forEach((item,index) => {
-       if(x === '') {
-           x = item;
-           same = 1;
-            if(index >= s.length -1 ) answer++;
-       } else {
-        if(x === item) same++;
-        else diff++;
-        
-        if(same === diff) {
+    let answer = 0;
+    let current;
+    let count = 0;
+
+    for(let i = 0; i < s.length; i++) {
+        if(count === 0) {
             answer++;
-            x='';
-            same = 0;
-            diff = 0;
-        }else {
-            if(index >= s.length -1 ) answer++;
+            current = s[i]
+            count = 1
+        } else {
+            if(current !== s[i]) count--;
+            else count++;
         }
-           
-       }
-         
-    })
-    
+    }
+
     return answer;
 }
