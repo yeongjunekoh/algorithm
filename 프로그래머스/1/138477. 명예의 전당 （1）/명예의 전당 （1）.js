@@ -8,7 +8,7 @@ function solution(k, score) {
         } else {
             top.push(item);
         }
-        top.sort((a,b) => Number(a) < Number(b) ? -1 : 1);
+        top.sort((a,b) => a - b);
         answer.push(top[0]);
     })
     
